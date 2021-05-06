@@ -11,7 +11,9 @@
           Nguyễn Văn Tùng
         </span>
       </div>
-      <div class="option-icon"></div>
+      <div class="option-icon">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -51,7 +53,7 @@ export default {}
   &-avatar {
     width: 20px;
     height: 20px;
-    background-image: url('../../assets/content/img/default-avatar.jpg');
+    background-image: url('../../assets/content/img/avatar.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 50%;
@@ -76,11 +78,6 @@ export default {}
 .option-icon {
   width: 20px;
   height: 20px;
-  background-image: url('../../assets/content/icon/option.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  overflow: hidden;
   margin-right: 16px;
 }
 </style>

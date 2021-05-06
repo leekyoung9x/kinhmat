@@ -7,30 +7,29 @@
     <div class="navbar-list">
       <ul>
           <navbar-item
-            title="Tổng quan"
+            title="Trang chủ"
             :isShow="isShow"
-            classIcon="fas fa-tachometer-alt"
+            classIcon="fas fa-home"
+            url="/"
           ></navbar-item>
 
         <navbar-item
-          title="Báo cáo"
+          title="Sản phẩm"
           :isShow="isShow"
-          classIcon="far fa-chart-bar"
+          classIcon="fab fa-product-hunt"
+          url="product"
         ></navbar-item>
         <navbar-item
-          title="Mua hàng"
+          title="Danh mục"
           :isShow="isShow"
-          classIcon="fas fa-shopping-cart"
+          classIcon="fab fa-avianex"
+          url="category"
         ></navbar-item>
         <navbar-item
-          title="Danh mục khách hàng"
+          title="Nhà cung cấp"
           :isShow="isShow"
-          classIcon="fas fa-users"
-        ></navbar-item>
-        <navbar-item
-          title="Thiết lập hệ thống"
-          :isShow="isShow"
-          classIcon="fas fa-cog"
+          classIcon="fas fa-parachute-box"
+          url="supply"
         ></navbar-item>
       </ul>
     </div>
@@ -56,6 +55,8 @@ export default {
   width: 226px;
   height: 100vh;
   border-right: 2px solid $table-cell-color;
+  position: sticky;
+  top: 0;
 }
 .logo-toggle {
   display: flex;
@@ -72,7 +73,7 @@ export default {
   .toggle {
     width: 24px;
     height: 24px;
-    background-image: url("../../assets/content/img/toggle.png");
+    background-image: url("../../assets/content/img/avatar.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 10px;
@@ -82,7 +83,7 @@ export default {
   .logo {
     width: calc(100% - 34px);
     height: 24px;
-    background-image: url("../../assets/content/img/logo.jpg");
+    background-image: url("../../assets/content/img/avatar.jpg");
     background-repeat: no-repeat;
     background-size: contain;
   }

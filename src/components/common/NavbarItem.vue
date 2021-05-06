@@ -1,6 +1,6 @@
 <template>
   <li class="navbar-item">
-    <a href="#" class="width-default" :class="{'width-auto': !isShow}">
+    <router-link :to="url" class="width-default" :class="{'width-auto': !isShow}">
       <div class="navbar-item-custom">
         <i :class="['navbar-item-icon', classIcon]"></i>
         <transition
@@ -12,7 +12,7 @@
           <span v-if="isShow">{{ title }}</span>
         </transition>
       </div>
-    </a>
+    </router-link>
   </li>
 </template>
 
@@ -27,6 +27,9 @@ export default {
       default: true
     },
     classIcon: {
+      type: String
+    },
+    url: {
       type: String
     }
   }
@@ -54,12 +57,7 @@ export default {
     color: $grey-color;
   }
 
-  a:hover {
-    background-color: $hover-menu-item-bg-color;
-    color: $hover-menu-item-color;
-  }
-
-  a:focus {
+  .router-link-exact-active {
     background-color: $default-color;
     color: $white-color;
   }
@@ -72,21 +70,6 @@ export default {
     padding: 0 16px;
   }
 
-  .icon-dashboard {
-    background-image: url("../../assets/content/icon/dashboard.png");
-  }
-
-  .icon-report {
-    background-image: url("../../assets/content/icon/report.png");
-  }
-
-  .icon-employee {
-    background-image: url("../../assets/content/icon/dic-employee.png");
-  }
-
-  .icon-setting {
-    background-image: url("../../assets/content/icon/setting.png");
-  }
 }
 
 .width-default {

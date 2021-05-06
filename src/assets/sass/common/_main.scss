@@ -27,7 +27,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    font-family: 'GoogleSans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -44,15 +44,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-@font-face {
-	font-family: 'GoogleSans';
-	src: url("assets/content/font/GoogleSans-Regular.otf") format("opentype");
-}
-// @font-face {
-// 	font-family: 'GoogleSans-Italic';
-// 	src: url('../../content/font/GoogleSans-Italic.otf') format('opentype');
-// }
-// @font-face {
-// 	font-family: 'GoogleSans-Bold';
-// 	src: url('../../content/font/GoogleSans-Bold.otf') format('opentype');
-// }

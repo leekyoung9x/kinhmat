@@ -4,7 +4,6 @@
     <div class="main">
       <the-header></the-header>
       <the-content></the-content>
-      <the-navigation></the-navigation>
     </div>
   </div>
 </template>
@@ -13,13 +12,11 @@
 import TheContent from './components/layout/TheContent'
 import TheHeader from './components/layout/TheHeader'
 import TheNavbar from './components/layout/TheNavbar'
-import TheNavigation from './components/layout/TheNavigation'
 export default {
   components: {
     TheContent,
     TheNavbar,
-    TheHeader,
-    TheNavigation
+    TheHeader
   }
 }
 </script>
