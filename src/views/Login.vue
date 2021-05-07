@@ -2,9 +2,9 @@
   <div class="login">
     <h2 class="title">Đăng nhập</h2>
     <div class="form-login">
-        <input placeholder="Email" type="email" name="customerEmail">
-        <input placeholder="Password" type="text" required="">
-        <button type="button">SIGN UP</button>
+        <input placeholder="Email" type="email" name="customerEmail" v-model="username">
+        <input placeholder="Password" type="text" required="" v-model="password">
+        <button type="button" @click="handleSubmit">SIGN UP</button>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     loggingIn () {
-      return this.$store.state.authentication.status.loggingIn
+      return this.$store.state.auth.status.loggingIn
     }
   },
   created () {

@@ -8,7 +8,7 @@
       <div class="header-avatar"></div>
       <div class="user-name">
         <span>
-          Nguyễn Văn Tùng
+            <router-link to="/login">Nguyễn Văn Tùng</router-link>
         </span>
       </div>
       <div class="option-icon">

@@ -9,7 +9,7 @@ const user = JSON.parse(localStorage.getItem('user'))
 const axiosIns = axios.create({
   // You can add your headers here
   // ================================
-  baseURL: 'https://localhost:44317/api/v1',
+  baseURL: 'https://localhost:44378/api/v1',
   // timeout: 1000,
   // headers: {'X-Custom-Header': 'foobar'}
   headers: user && user.token ? { Authorization: 'Bearer ' + user.token } : {}

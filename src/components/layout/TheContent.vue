@@ -1,9 +1,8 @@
 <template>
   <div class="content">
-    <slot></slot>
-    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in">
-      <router-view></router-view>
-    </transition>
+    <!-- <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut" mode="out-in"> -->
+      <slot></slot>
+    <!-- </transition> -->
   </div>
 </template>
 

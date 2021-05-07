@@ -1,22 +1,21 @@
 <template>
   <div class="home">
-    <the-content>
       <div class="title">
         <h2>Chào mừng bạn đến với trang Admin</h2>
       </div>
-    </the-content>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TheContent from '../components/layout/TheContent.vue'
+// import TheContent from '../components/layout/TheContent.vue'
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
-    TheContent
+    // TheContent
   }
 }
 </script>

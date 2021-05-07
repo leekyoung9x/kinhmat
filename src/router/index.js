@@ -7,29 +7,50 @@ import Supply from '../views/Supply.vue'
 import Order from '../views/Order.vue'
 import Login from '../views/Login.vue'
 import Login1 from '../views/Login1.vue'
+import TheContent from '../components/layout/TheContent.vue'
+import TheHeader from '../components/layout/TheHeader.vue'
+import TheNavbar from '../components/layout/TheNavbar.vue'
+import Index from '../views/Index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/product',
-    name: 'Product',
-    component: Product
-  },
-  {
-    path: '/category',
-    name: 'Category',
-    component: Category
-  },
-  {
-    path: '/supply',
-    name: 'Supply',
-    component: Supply
+    name: 'Index',
+    components: {
+      default: Index,
+      'the-content': TheContent,
+      'the-header': TheHeader,
+      'the-navbar': TheNavbar
+    },
+    children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: Home
+      },
+      {
+        path: '/product',
+        name: 'Product',
+        component: Product
+      },
+      {
+        path: '/category',
+        name: 'Category',
+        component: Category
+      },
+      {
+        path: '/supply',
+        name: 'Supply',
+        component: Supply
+      },
+      {
+        path: '/order',
+        name: 'Order',
+        component: Order
+      }
+    ]
   },
   {
     path: '/about',
@@ -38,11 +59,6 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/order',
-    name: 'Order',
-    component: Order
   },
   {
     path: '/login',

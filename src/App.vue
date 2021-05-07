@@ -1,22 +1,19 @@
 <template>
   <div id="app">
-    <template v-if="isLogin">
-      <the-navbar></the-navbar>
+      <router-view name="the-navbar"></router-view>
     <div class="main">
-      <the-header></the-header>
-      <the-content></the-content>
+      <router-view name="the-header"></router-view>
+      <the-content>
+        <router-view></router-view>
+      </the-content>
     </div>
-    </template>
-    <template v-else>
-      <router-view></router-view>
-    </template>
   </div>
 </template>
 
 <script>
 import TheContent from './components/layout/TheContent'
-import TheHeader from './components/layout/TheHeader'
-import TheNavbar from './components/layout/TheNavbar'
+// import TheHeader from './components/layout/TheHeader'
+// import TheNavbar from './components/layout/TheNavbar'
 
 const loggedIn = localStorage.getItem('user')
 export default {
@@ -31,9 +28,9 @@ export default {
     }
   },
   components: {
-    TheContent,
-    TheNavbar,
-    TheHeader
+    TheContent
+    // TheNavbar,
+    // TheHeader
   }
 }
 </script>
