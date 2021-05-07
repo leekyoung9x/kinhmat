@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <the-navbar></the-navbar>
+    <template v-if="isLogin">
+      <the-navbar></the-navbar>
     <div class="main">
       <the-header></the-header>
       <the-content></the-content>
     </div>
+    </template>
+    <template v-else>
+      <router-view></router-view>
+    </template>
   </div>
 </template>
 
@@ -12,7 +17,19 @@
 import TheContent from './components/layout/TheContent'
 import TheHeader from './components/layout/TheHeader'
 import TheNavbar from './components/layout/TheNavbar'
+
+const loggedIn = localStorage.getItem('user')
 export default {
+  // data () {
+  //   return {
+  //     isLogin: false
+  //   }
+  // },
+  computed: {
+    isLogin () {
+      return loggedIn
+    }
+  },
   components: {
     TheContent,
     TheNavbar,

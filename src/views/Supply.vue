@@ -42,6 +42,9 @@
             <tr>
               <th>Chọn</th>
               <th>Tên nhà cung cấp</th>
+              <th>Địa chỉ</th>
+              <th>SĐT</th>
+              <th>Email</th>
               <th>Tùy chọn</th>
             </tr>
           </thead>
@@ -50,6 +53,9 @@
               <td>
                 <input type="checkbox" />
               </td>
+              <td>{{ supply.supplyName }}</td>
+              <td>{{ supply.supplyName }}</td>
+              <td>{{ supply.supplyName }}</td>
               <td>{{ supply.supplyName }}</td>
               <td style="display: flex">
                 <button-option

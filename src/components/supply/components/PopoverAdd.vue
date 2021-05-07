@@ -3,110 +3,68 @@
     <div class="mask" @click="isShowPopup = true"></div>
     <div class="popover">
       <div class="popover-title">
-        <h2>Thêm sản phẩm</h2>
+        <h2>Thêm nhà cung cấp</h2>
       </div>
 
-      <div class="product-input-top">
-        <div class="product-input-top-left">
-          <div class="product-input-item">
-            <label for="productCode">Mã sản phẩm</label>
+      <div class="supply-input-top">
+        <div class="supply-input-top-left">
+          <div class="supply-input-item">
+            <label for="supplyCode">Mã NCC</label>
             <input
-              v-model="product.productCode"
+              v-model="supply.supplyCode"
               type="text"
-              id="productCode"
-              name="product_code"
+              id="supplyCode"
+              name="supply_code"
             />
             <!-- <popup style="background-color: #FF4747; color: #fff ">
             <span>Mã khách hàng không được để trống</span>
           </popup> -->
           </div>
-          <div class="product-input-item">
-            <label for="productName">Tên sản phẩm</label>
+          <div class="supply-input-item">
+            <label for="supplyName">Tên NCC</label>
             <input
-              v-model="product.productName"
+              v-model="supply.supplyName"
               type="text"
-              id="productName"
-              name="product_name"
+              id="supplyName"
+              name="supply_name"
             />
           </div>
-          <div class="product-input-item product-select">
-            <label for="productCategory">Danh mục</label>
-            <select
-              v-model="product.productCategoryId"
-              name="product_category_id"
-              id="productCategory"
-            >
-              <option v-for="category in categories.data" :key="category" :value="category.categoryId">
-                {{ category.categoryName }}
-              </option>
-            </select>
-          </div>
-          <div class="product-input-item">
-            <label for="productPhone">Giá</label>
+          <div class="supply-input-item">
+            <label for="supplyPhone">Địa chỉ</label>
             <input
-              v-model="product.productPrice"
+              v-model="supply.supplyPrice"
               type="text"
-              id="productPhone"
-              name="product_phone"
+              id="supplyPhone"
+              name="supply_phone"
             />
           </div>
-        </div>
-
-        <div class="product-image product-input-item">
-          <span>Ảnh sản phẩm</span>
-          <img
-            src="../../../assets/content/img/avatar-luffy.jpg"
-            alt="avatar"
+          <div class="supply-input-item">
+          <label for="supplyAmount">SĐT</label>
+          <input
+            v-model="supply.supplyAmount"
+            type="text"
+            id="supplyAmount"
+            name="address"
           />
-          <div>
-            <label for="productUploadImage">Tải ảnh</label>
-          </div>
-          <input type="file" id="productUploadImage" name="avatar" hidden />
+        </div>
+        <div class="supply-input-item">
+          <label for="supplyColor">Email</label>
+          <input
+            v-model="supply.supplyColor"
+            type="text"
+            id="supplyColor"
+            name="address"
+          />
+        </div>
         </div>
       </div>
 
-      <div class="product-input-bottom">
-        <div class="product-input-item product-select">
-          <label for="productGroup">Nhà cung cấp</label>
-          <select
-            v-model="product.productSupplierId"
-            name="product-group"
-            id="productGroup"
-          >
-            <option v-for="item in suppliers" :key="item" :value="item.supplyId">{{item.supplyName}}</option>
-          </select>
-        </div>
-        <div class="product-input-item">
-          <label for="productAmount">Số lượng</label>
-          <input
-            v-model="product.productAmount"
-            type="text"
-            id="productAmount"
-            name="address"
-          />
-        </div>
-        <div class="product-input-item">
-          <label for="productColor">Màu sắc</label>
-          <input
-            v-model="product.productColor"
-            type="text"
-            id="productColor"
-            name="address"
-          />
-        </div>
-        <div class="product-input-item">
-          <label for="productMeterial">Chất liệu</label>
-          <input
-            v-model="product.productMeterial"
-            type="text"
-            id="productMeterial"
-            name="address"
-          />
-        </div>
+      <div class="supply-input-bottom">
+
       </div>
 
       <div class="group-btn">
-        <a href="#" @click.prevent="SaveProduct" class="save-btn btn">Lưu</a>
+        <a href="#" @click.prevent="Savesupply" class="save-btn btn">Lưu</a>
         <a href="#" class="cancel-btn btn" @click="isShowPopup = true"
           >Hủy bỏ</a
         >
@@ -184,15 +142,15 @@ export default {
   data () {
     return {
       isShowPopup: false,
-      product: {
-        productCode: '',
-        productName: '',
-        productCategoryId: null,
-        productPrice: null,
-        productSupplierId: null,
-        productAmount: null,
-        productColor: '',
-        productMeterial: ''
+      supply: {
+        supplyCode: '',
+        supplyName: '',
+        supplyCategoryId: null,
+        supplyPrice: null,
+        supplySupplierId: null,
+        supplyAmount: null,
+        supplyColor: '',
+        supplyMeterial: ''
       },
       categories: [],
       suppliers: []
@@ -207,9 +165,9 @@ export default {
     HiddenPopup () {
       this.isShowPopup = false
     },
-    SaveProduct () {
+    Savesupply () {
       this.axios
-        .post('/Products', this.product)
+        .post('/supplys', this.supply)
         .then((res) => {
           console.log('luu thanh cong')
         })
@@ -223,7 +181,6 @@ export default {
 .popover {
   position: fixed;
   width: 700px;
-  height: 500px;
   top: 50%;
   left: 50%;
   margin-top: -250px; /* Negative half of height. */
@@ -240,7 +197,7 @@ export default {
   }
 }
 
-.product-select {
+.supply-select {
   select {
     height: 39px;
     border-radius: 5px;
@@ -250,7 +207,7 @@ export default {
   }
 }
 
-.product-input {
+.supply-input {
   &-item {
     display: flex;
     flex-direction: column;
@@ -308,11 +265,12 @@ export default {
 
   &-top {
     &-left {
-      width: 70%;
+      width: 100%;
       padding-right: 20px;
+      margin-bottom: 20px;
     }
 
-    .product-image {
+    .supply-image {
       width: 30%;
 
       span {
@@ -355,11 +313,11 @@ export default {
   }
 
   &-bottom {
-    .product-input-item {
+    .supply-input-item {
       width: 50%;
     }
 
-    .product-input-item:nth-child(odd) {
+    .supply-input-item:nth-child(odd) {
       padding-right: 10px;
     }
   }

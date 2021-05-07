@@ -3,124 +3,59 @@
     <div class="mask" @click="isShowPopup = true"></div>
     <div class="popover">
       <div class="popover-title">
-        <h2>Thêm sản phẩm</h2>
+        <h2>Sửa nhà cung cấp</h2>
       </div>
 
-      <div class="product-input-top">
-        <div class="product-input-top-left">
-          <div class="product-input-item">
-            <label for="productCode">Mã sản phẩm</label>
+      <div class="supplier-input-top">
+        <div class="supplier-input-top-left">
+          <div class="supplier-input-item">
+            <label for="supplierCode">Mã nhà cung cấp</label>
             <input
-              v-model="product.productCode"
               type="text"
-              id="productCode"
-              name="product_code"
+              id="supplierCode"
+              name="supplier_code"
             />
             <!-- <popup style="background-color: #FF4747; color: #fff ">
             <span>Mã khách hàng không được để trống</span>
           </popup> -->
           </div>
-          <div class="product-input-item">
-            <label for="productName">Tên sản phẩm</label>
+          <div class="supplier-input-item">
+            <label for="supplierName">Tên nhà cung cấp</label>
             <input
-              v-model="product.productName"
               type="text"
-              id="productName"
-              name="product_name"
+              id="supplierName"
+              name="supplier_name"
             />
           </div>
-          <div class="product-input-item product-select">
-            <label for="productCategory">Danh mục</label>
-            <select
-              v-model="product.productCategoryId"
-              name="product_category_id"
-              id="productCategory"
-            >
-              <option value="18e54f45-7ad3-4884-970d-b8ce6f06907d">
-                Tiềm năng
-              </option>
-              <option value="18e54f45-7ad3-4884-970d-b8ce6f06907d">
-                Thân thiết
-              </option>
-              <option value="18e54f45-7ad3-4884-970d-b8ce6f06907d">Mới</option>
-              <option value="18e54f45-7ad3-4884-970d-b8ce6f06907d">
-                Lâu năm
-              </option>
-              <option value="18e54f45-7ad3-4884-970d-b8ce6f06907d">
-                Đối tác
-              </option>
-            </select>
-          </div>
-          <div class="product-input-item">
-            <label for="productPhone">Giá</label>
+          <div class="supplier-input-item">
+            <label for="supplierPhone">Địa chỉ</label>
             <input
-              v-model="product.productPrice"
               type="text"
-              id="productPhone"
-              name="product_phone"
+              id="supplierPhone"
+              name="supplier_phone"
             />
           </div>
-        </div>
-
-        <div class="product-image product-input-item">
-          <span>Ảnh sản phẩm</span>
-          <img
-            src="../../../assets/content/img/avatar-luffy.jpg"
-            alt="avatar"
-          />
-          <div>
-            <label for="productUploadImage">Tải ảnh</label>
-          </div>
-          <input type="file" id="productUploadImage" name="avatar" hidden />
-        </div>
-      </div>
-
-      <div class="product-input-bottom">
-        <div class="product-input-item product-select">
-          <label for="productGroup">Nhà cung cấp</label>
-          <select
-            v-model="product.productSupplierId"
-            name="product-group"
-            id="productGroup"
-          >
-            <option value="1">Tiềm năng</option>
-            <option value="1">Thân thiết</option>
-            <option value="1">Mới</option>
-            <option value="1">Lâu năm</option>
-            <option value="1">Đối tác</option>
-          </select>
-        </div>
-        <div class="product-input-item">
-          <label for="productAmount">Số lượng</label>
+          <div class="supplier-input-item">
+          <label for="supplierAmount">SĐT</label>
           <input
-            v-model="product.productAmount"
             type="text"
-            id="productAmount"
+            id="supplierAmount"
             name="address"
           />
         </div>
-        <div class="product-input-item">
-          <label for="productColor">Màu sắc</label>
+        <div class="supplier-input-item">
+          <label for="supplierColor">Email</label>
           <input
-            v-model="product.productColor"
             type="text"
-            id="productColor"
+            id="supplierColor"
             name="address"
           />
         </div>
-        <div class="product-input-item">
-          <label for="productMeterial">Chất liệu</label>
-          <input
-            v-model="product.productMeterial"
-            type="text"
-            id="productMeterial"
-            name="address"
-          />
         </div>
       </div>
 
       <div class="group-btn">
-        <a href="#" @click.prevent="UpdateProduct" class="save-btn btn">Lưu</a>
+        <a href="#" @click.prevent="Updatesupplier" class="save-btn btn">Lưu</a>
         <a href="#" class="cancel-btn btn" @click="isShowPopup = true"
           >Hủy bỏ</a
         >
@@ -171,14 +106,14 @@ export default {
   props: {
     isShow: {
       type: Boolean,
-      default: false
+      default: true
     },
     onHidden: {
       type: Function
-    },
-    product: {
-      type: Object
     }
+    // supplier: {
+    //   type: Object
+    // }
   },
   data () {
     return {
@@ -194,9 +129,9 @@ export default {
     HiddenPopup () {
       this.isShowPopup = false
     },
-    UpdateProduct () {
+    Updatesupplier () {
       this.axios
-        .put('/Products/' + this.product.productId, this.product)
+        .put('/suppliers/' + this.supplier.supplierId, this.supplier)
         .then((res) => {
           console.log('cap nhat thanh cong')
         })
@@ -210,7 +145,6 @@ export default {
 .popover {
   position: fixed;
   width: 700px;
-  height: 500px;
   top: 50%;
   left: 50%;
   margin-top: -250px; /* Negative half of height. */
@@ -227,7 +161,7 @@ export default {
   }
 }
 
-.product-select {
+.supplier-select {
   select {
     height: 39px;
     border-radius: 5px;
@@ -237,7 +171,7 @@ export default {
   }
 }
 
-.product-input {
+.supplier-input {
   &-item {
     display: flex;
     flex-direction: column;
@@ -295,11 +229,12 @@ export default {
 
   &-top {
     &-left {
-      width: 70%;
+      width: 100%;
       padding-right: 20px;
+      margin-bottom: 20px;
     }
 
-    .product-image {
+    .supplier-image {
       width: 30%;
 
       span {
@@ -342,11 +277,11 @@ export default {
   }
 
   &-bottom {
-    .product-input-item {
+    .supplier-input-item {
       width: 50%;
     }
 
-    .product-input-item:nth-child(odd) {
+    .supplier-input-item:nth-child(odd) {
       padding-right: 10px;
     }
   }

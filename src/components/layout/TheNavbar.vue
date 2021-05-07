@@ -31,6 +31,12 @@
           classIcon="fas fa-parachute-box"
           url="supply"
         ></navbar-item>
+        <navbar-item
+          title="Đơn hàng"
+          :isShow="isShow"
+          classIcon="fas fa-archive"
+          url="order"
+        ></navbar-item>
       </ul>
     </div>
   </div>

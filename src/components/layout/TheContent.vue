@@ -34,7 +34,6 @@ export default
 @import "../../assets/sass/common/_variable.scss";
 .content {
   padding: 12px 10px 0 10px;
-  max-width: 82vw;
   &-top {
     display: flex;
     justify-content: space-between;
